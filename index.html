@@ -267,7 +267,7 @@
       );
     }
 
-    function FinalScore({ finalScore, incorrect, setFlag, setBones, setCarrot, setOrgans }) {
+    function FinalScore({ finalScore, incorrect, setFlag, setBones, setCarrot, setOrgans, setFinalScore, setIncorrect }) {
       
       // function to handleReset:
       function handleReset() {
@@ -276,6 +276,8 @@
          setBones(0);
          setCarrot("");
          setOrgans(0);
+         setFinalScore(0);
+         setIncorrect(0);
       }
 
       return (
@@ -318,7 +320,7 @@
               setBones={setBones}
             />
           ) : (
-            <FinalScore finalScore={finalScore} incorrect={incorrect} setBones={setBones} setCarrot={setCarrot} setOrgans={setOrgans} setFlag={setFlag} />
+            <FinalScore finalScore={finalScore} incorrect={incorrect} setBones={setBones} setCarrot={setCarrot} setOrgans={setOrgans} setFlag={setFlag} setFinalScore={setFinalScore} setIncorrect={setIncorrect} />
           )}
         </>
       );
