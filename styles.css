@@ -1,0 +1,60 @@
+body {
+    font-family: poppins, sans-serif;
+}
+
+fieldset {
+    border: 0;
+    margin: 10px;
+}
+
+legend {
+    font-size: 20px;
+}
+
+input {
+    cursor: pointer;
+}
+
+label {
+    font-size:20px ;
+    cursor: pointer;
+}
+
+
+#submit {
+    background-color: rgb(48, 182, 14);
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    font-family: poppins, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#submit:hover {
+    background-color: white;
+    border: 1px solid rgb(48, 182, 14);
+    color: rgb(48, 182, 14);
+}
+
+#reset{
+    background-color: rgb(10, 94, 220);
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    font-family: poppins, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+#reset:hover {
+    background-color: white;
+    border: 1px solid rgb(10, 94, 220);
+    color: rgb(10, 94, 220);
+}

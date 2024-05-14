@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Question 1
+    function Question1({ bones, handleBones }) {
+      return (
+        <>
+          <fieldset>
+            <legend>1. How many bones are there in human body:</legend>
+            {/*option 1 */}
+            <div>
+              <input
+                type="radio"
+                id="189"
+                name="bones"
+                value="189"
+                onChange={handleBones}
+              />
+              <label htmlFor="189">189</label>
+            </div>
+            {/*option 2 */}
+            <div>
+              <input
+                type="radio"
+                id="200"
+                name="bones"
+                value="200"
+                onChange={handleBones}
+              />
+              <label htmlFor="200">200</label>
+            </div>
+            {/*option 3 */}
+            <div>
+              <input
+                type="radio"
+                id="206"
+                name="bones"
+                value="206"
+                onChange={handleBones}
+              />
+              <label htmlFor="206">206</label>
+            </div>
+            {/*option 4 */}
+            <div>
+              <input
+                type="radio"
+                id="208"
+                name="bones"
+                value="208"
+                onChange={handleBones}
+              />
+              <label htmlFor="208">208</label>
+            </div>
+          </fieldset>
+        </>
+      );
+    }
+
+    //<------->
+
+    // Question 2
+    function Question2({ organs, handleOrgans }) {
+      return (
+        <>
+          <fieldset>
+            <legend>2. How many sense organs are there in human body:</legend>
+            {/*option 1 */}
+            <div>
+              <input
+                type="radio"
+                id="2"
+                name="organs"
+                value="2"
+                onChange={handleOrgans}
+              />
+              <label htmlFor="2">2</label>
+            </div>
+            {/*option 2 */}
+            <div>
+              <input
+                type="radio"
+                id="3"
+                name="organs"
+                value="3"
+                onChange={handleOrgans}
+              />
+              <label htmlFor="3">3</label>
+            </div>
+            {/*option 3 */}
+            <div>
+              <input
+                type="radio"
+                id="6"
+                name="organs"
+                value="6"
+                onChange={handleOrgans}
+              />
+              <label htmlFor="6">6</label>
+            </div>
+            {/*option 4 */}
+            <div>
+              <input
+                type="radio"
+                id="5"
+                name="organs"
+                value="5"
+                onChange={handleOrgans}
+              />
+              <label htmlFor="5">5</label>
+            </div>
+          </fieldset>
+        </>
+      );
+    }
+
+    //<------->
+
+    // Question 3
+    function Question3({ carrot, handleCarrot }) {
+      return (
+        <>
+          <fieldset>
+            <legend>3. Which part of plant is carrot:</legend>
+            {/*option 1 */}
+            <div>
+              <input
+                type="radio"
+                id="leaves"
+                name="carrot"
+                value="leaves"
+                onChange={handleCarrot}
+              />
+              <label htmlFor="leaves">leaves</label>
+            </div>
+            {/*option 2 */}
+            <div>
+              <input
+                type="radio"
+                id="branch"
+                name="carrot"
+                value="branch"
+                onChange={handleCarrot}
+              />
+              <label htmlFor="branch">branch</label>
+            </div>
+            {/*option 3 */}
+            <div>
+              <input
+                type="radio"
+                id="plantRoot"
+                name="carrot"
+                value="plantRoot"
+                onChange={handleCarrot}
+              />
+              <label htmlFor="plantRoot">plantRoot</label>
+            </div>
+            {/*option 4 */}
+            <div>
+              <input
+                type="radio"
+                id="stem"
+                name="carrot"
+                value="stem"
+                onChange={handleCarrot}
+              />
+              <label htmlFor="stem">stem</label>
+            </div>
+          </fieldset>
+        </>
+      );
+    }
+    //<------->
+
+    // Quiz component creation
+    function Quiz({
+      setFinalScore,
+      setFlag,
+      setIncorrect,
+      carrot,
+      setCarrot,
+      organs,
+      setOrgans,
+      bones,
+      setBones,
+    }) {
+      // bones correct answer:
+      let correctBonesValue = 206;
+      // organs correct answer:
+      let correctOrgansValue = 5;
+      // carrot correct answer:
+      let correctCarrotValue = "plantRoot";
+
+      // function to handle change in carrot:
+      function handleCarrot(event) {
+        // setting state
+        setCarrot(event.target.value);
+      }
+
+      // function to handle change organs:
+      function handleOrgans(event) {
+        // converting string to number:
+        let value = Number(event.target.value);
+        // setting the state.
+        setOrgans(value);
+      }
+
+      // function to handle change bones:
+      function handleBones(event) {
+        // converting the string to number
+        let value = Number(event.target.value);
+        // setting the value
+        setBones(value);
+      }
+
+      // function to handle submit
+      function handleSubmit() {
+        // checking the values whether it is correct or not for bones:
+        if (bones === correctBonesValue) {
+          setFinalScore((prevScore) => prevScore + 1);
+        } else {
+          setIncorrect((prevScore) => prevScore + 1);
+        }
+
+        // checking the values whether it is correct or not for organs:
+        if (organs === correctOrgansValue) {
+          setFinalScore((prevScore) => prevScore + 1);
+        } else {
+          setIncorrect((prevScore) => prevScore + 1);
+        }
+
+        // checking the values whether it is correct or not for carrot:
+        if (carrot === correctCarrotValue) {
+          setFinalScore((prevScore) => prevScore + 1);
+        } else {
+          setIncorrect((prevScore) => prevScore + 1);
+        }
+
+        // Setting flag to true
+        setFlag(false);
+      }
+
+      return (
+        <>
+          {/* Heading of the quiz */}
+          <h1 style={{ textAlign: "center" }}>Quiz problems</h1>
+          {/* question components*/}
+          <div>
+            <Question1 bones={bones} handleBones={handleBones} />
+            <Question2 organs={organs} handleOrgans={handleOrgans} />
+            <Question3 carrot={carrot} handleCarrot={handleCarrot} />
+          </div>
+          {/*Submit button*/}
+          <button id="submit" onClick={handleSubmit}>Submit</button>
+        </>
+      );
+    }
+
+    function FinalScore({ finalScore, incorrect, setFlag, setBones, setCarrot, setOrgans }) {
+      
+      // function to handleReset:
+      function handleReset() {
+        // Resetting the  values back to default,
+         setFlag(true);
+         setBones(0);
+         setCarrot("");
+         setOrgans(0);
+      }
+
+      return (
+        <>
+          <h1>Your Score Card</h1>
+          <h3>Final score is :{finalScore} / 3 </h3>
+          <h3>Total incorrect answers are : {incorrect}</h3>
+          <button id="reset" onClick={handleReset}>Reset</button>
+        </>
+      );
+    }
+
+    // App component:
+    function App() {
+      // creating and initializing the state to carrot:
+      let [carrot, setCarrot] = React.useState(0);
+      // creating and initializing the state to organs:
+      let [organs, setOrgans] = React.useState("");
+      // creating and initializing the state to bones:
+      let [bones, setBones] = React.useState(0);
+      // creating and initializing the state to finalScore:
+      let [finalScore, setFinalScore] = React.useState(0);
+      // creating and initializing the state to incorrectScore:
+      let [incorrect, setIncorrect] = React.useState(0);
+      // creating a flag for negating the flag value:
+      let [flag, setFlag] = React.useState(true);
+
+      return (
+        <>
+          {flag ? (
+            <Quiz
+              setFinalScore={setFinalScore}
+              setFlag={setFlag}
+              setIncorrect={setIncorrect}
+              carrot={carrot}
+              setCarrot={setCarrot}
+              organs={organs}
+              setOrgans={setOrgans}
+              bones={bones}
+              setBones={setBones}
+            />
+          ) : (
+            <FinalScore finalScore={finalScore} incorrect={incorrect} setBones={setBones} setCarrot={setCarrot} setOrgans={setOrgans} setFlag={setFlag} />
+          )}
+        </>
+      );
+    }
+
+    // catching root element:
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    // rendering
+    rootElement.render(<App />);
+  </script>
+</html>
